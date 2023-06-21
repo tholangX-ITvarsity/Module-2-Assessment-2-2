@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1 style="color: black;">Map</h1>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div id="menu">
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="stores.html">Stores</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <div class="container">
+            <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img src="Images/Ground Level Map.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img src="Images/Lower First Level Map.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img src="Images/Lower Ground Level Map.jpg" style="width:100%">
+        </div>
+    
+        <div class="mySlides">
+            <div class="numbertext">4 / 4</div>
+            <img src="Images/Upper First Level Map.jpg" style="width:100%">
+        </div>
+    
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+            <img class="demo cursor" src="Images/Ground Level Map.jpg" style="width:100%" onclick="currentSlide(1)" alt="Ground Level">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Images/Lower First Level Map.jpg" style="width:100%" onclick="currentSlide(2)" alt="Lower First Level">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Images/Lower Ground Level Map.jpg" style="width:100%" onclick="currentSlide(3)" alt="Lower Ground Level">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Images/Upper First Level Map.jpg" style="width:100%" onclick="currentSlide(4)" alt="Upper First Level">
+        </div>
+        </div>
+        </div>
+
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("demo");
+              let captionText = document.getElementById("caption");
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+              captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+            </script>
+    </body>
+</html>
